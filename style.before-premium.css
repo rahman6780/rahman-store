@@ -1,23 +1,19 @@
 /* ========================================
-   RAHMAN STORE — MONOCHROME PREMIUM
-   A visual family with NEXA
+   RAHMAN STORE — MONOCHROME DESIGN
    ======================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
     --bg: #080808;
-    --bg-soft: #0d0d0d;
-    --surface: rgba(255, 255, 255, 0.045);
-    --surface-hover: rgba(255, 255, 255, 0.075);
-    --white: #f2f2f2;
-    --gray: #929292;
-    --gray-soft: #686868;
-    --gray-dark: #3d3d3d;
-    --border: rgba(255, 255, 255, 0.11);
-    --border-hover: rgba(255, 255, 255, 0.24);
+    --bg-soft: #101010;
+    --surface: #151515;
+    --surface-light: #1d1d1d;
+    --white: #f5f5f5;
+    --gray: #999;
+    --gray-dark: #555;
+    --border: rgba(255, 255, 255, 0.12);
     --radius: 18px;
-    --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -36,7 +32,6 @@ body {
     font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -48,45 +43,27 @@ button {
     font: inherit;
 }
 
-/* ========================================
-   BACKGROUND
-   ======================================== */
-
-body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -3;
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255, 255, 255, 0.018),
-            transparent 30%
-        );
-}
+/* Background */
 
 .background-glow {
     position: fixed;
     inset: 0;
     pointer-events: none;
-    z-index: -2;
+    z-index: -1;
     background:
         radial-gradient(
-            ellipse at 78% 8%,
-            rgba(255, 255, 255, 0.065),
-            transparent 30%
+            ellipse at 75% 15%,
+            rgba(255, 255, 255, 0.055),
+            transparent 35%
         ),
         radial-gradient(
-            ellipse at 12% 65%,
+            ellipse at 15% 75%,
             rgba(255, 255, 255, 0.025),
-            transparent 32%
+            transparent 35%
         );
 }
 
-/* ========================================
-   NAVBAR
-   ======================================== */
+/* Navbar */
 
 .navbar {
     width: 100%;
@@ -98,9 +75,8 @@ body::before {
     border-bottom: 1px solid var(--border);
     position: relative;
     z-index: 100;
-    background: rgba(8, 8, 8, 0.72);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(8, 8, 8, 0.78);
+    backdrop-filter: blur(16px);
 }
 
 .brand {
@@ -108,11 +84,6 @@ body::before {
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    transition: opacity 0.3s ease;
-}
-
-.brand:hover {
-    opacity: 0.72;
 }
 
 .brand span {
@@ -146,9 +117,7 @@ body::before {
     cursor: pointer;
 }
 
-/* ========================================
-   HERO
-   ======================================== */
+/* Hero */
 
 .hero {
     min-height: calc(100vh - 82px);
@@ -213,12 +182,7 @@ h2 span {
     border-radius: 50px;
     font-size: 0.75rem;
     font-weight: 700;
-    transition:
-        transform 0.35s var(--ease),
-        background 0.35s ease,
-        border-color 0.35s ease,
-        color 0.35s ease,
-        box-shadow 0.35s ease;
+    transition: all 0.3s ease;
 }
 
 .btn span {
@@ -228,30 +192,24 @@ h2 span {
 .btn-primary {
     background: var(--white);
     color: #080808;
-    box-shadow: 0 0 0 rgba(255, 255, 255, 0);
 }
 
 .btn-primary:hover {
-    background: #ffffff;
+    background: #ccc;
     transform: translateY(-3px);
-    box-shadow: 0 10px 35px rgba(255, 255, 255, 0.08);
 }
 
 .btn-secondary {
     border: 1px solid var(--border);
     color: #aaa;
-    background: rgba(255, 255, 255, 0.015);
 }
 
 .btn-secondary:hover {
-    border-color: var(--border-hover);
-    color: var(--white);
-    background: rgba(255, 255, 255, 0.04);
+    border-color: #777;
+    color: white;
 }
 
-/* ========================================
-   HERO VISUAL
-   ======================================== */
+/* Hero Visual */
 
 .hero-visual {
     width: min(42vw, 500px);
@@ -285,16 +243,10 @@ h2 span {
     width: 38%;
     height: 38%;
     border-radius: 50%;
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #4a4a4a,
-            #1a1a1a 45%,
-            #080808 100%
-        );
+    background: linear-gradient(145deg, #303030, #080808);
     border: 1px solid #444;
     box-shadow:
-        0 0 70px rgba(255, 255, 255, 0.07),
+        0 0 70px rgba(255, 255, 255, 0.08),
         inset 0 0 30px rgba(255, 255, 255, 0.06);
     display: flex;
     align-items: center;
@@ -315,9 +267,7 @@ h2 span {
     color: #666;
     border: 1px solid var(--border);
     padding: 8px 12px;
-    background: rgba(11, 11, 11, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    background: #0b0b0b;
 }
 
 .label-top {
@@ -331,26 +281,16 @@ h2 span {
 }
 
 @keyframes rotate {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 @keyframes rotateReverse {
-    from {
-        transform: rotate(360deg);
-    }
-    to {
-        transform: rotate(0deg);
-    }
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
 }
 
-/* ========================================
-   GENERAL SECTIONS
-   ======================================== */
+/* General Sections */
 
 .section {
     max-width: 1400px;
@@ -386,9 +326,7 @@ h2 {
     line-height: 1.8;
 }
 
-/* ========================================
-   PRODUCT CARDS
-   ======================================== */
+/* Product Cards */
 
 .product-grid {
     display: grid;
@@ -401,18 +339,12 @@ h2 {
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    transition:
-        transform 0.45s var(--ease),
-        border-color 0.45s ease,
-        background 0.45s ease,
-        box-shadow 0.45s ease;
+    transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
 .product-card:hover {
     transform: translateY(-8px);
-    border-color: var(--border-hover);
-    background: var(--surface-hover);
-    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.22);
+    border-color: #444;
 }
 
 .product-number {
@@ -431,20 +363,13 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.035);
 }
 
 /* NEXA Visual */
 
 .product-nexa {
     background:
-        radial-gradient(
-            circle at center,
-            #454545 0%,
-            #202020 25%,
-            #111 62%,
-            #0c0c0c 100%
-        );
+        radial-gradient(circle at center, #444 0%, #1b1b1b 28%, #101010 65%);
 }
 
 .product-orbit {
@@ -475,12 +400,7 @@ h2 {
 /* Device Visual */
 
 .product-device {
-    background:
-        radial-gradient(
-            circle at 50% 50%,
-            #292929,
-            #111 72%
-        );
+    background: #1b1b1b;
 }
 
 .device-shape {
@@ -555,9 +475,7 @@ h2 {
     color: white;
 }
 
-/* ========================================
-   ABOUT
-   ======================================== */
+/* About */
 
 .about-section {
     display: grid;
@@ -587,9 +505,7 @@ h2 {
     margin-top: 18px;
 }
 
-/* ========================================
-   NEWS
-   ======================================== */
+/* News */
 
 .news-list {
     border-top: 1px solid var(--border);
@@ -602,11 +518,6 @@ h2 {
     gap: 20px;
     padding: 28px 0;
     border-bottom: 1px solid var(--border);
-    transition: padding 0.3s ease;
-}
-
-.news-item:hover {
-    padding-left: 8px;
 }
 
 .news-item > span {
@@ -631,9 +542,7 @@ h2 {
     color: white;
 }
 
-/* ========================================
-   CONTACT
-   ======================================== */
+/* Contact */
 
 .contact-section {
     text-align: center;
@@ -653,9 +562,7 @@ h2 {
     display: inline-flex;
 }
 
-/* ========================================
-   FOOTER
-   ======================================== */
+/* Footer */
 
 .footer {
     padding: 50px 8% 30px;
@@ -680,9 +587,7 @@ h2 {
     font-size: 0.65rem;
 }
 
-/* ========================================
-   SCROLL REVEAL
-   ======================================== */
+/* Scroll Reveal */
 
 .product-card,
 .about-content,
@@ -692,9 +597,7 @@ h2 {
     transform: translateY(25px);
     transition:
         opacity 0.7s ease,
-        transform 0.7s ease,
-        border-color 0.45s ease,
-        background 0.45s ease;
+        transform 0.7s ease;
 }
 
 .product-card.visible,
@@ -705,9 +608,7 @@ h2 {
     transform: translateY(0);
 }
 
-/* ========================================
-   RESPONSIVE — TABLET
-   ======================================== */
+/* Responsive */
 
 @media (max-width: 900px) {
 
@@ -746,10 +647,6 @@ h2 {
     }
 }
 
-/* ========================================
-   RESPONSIVE — MOBILE
-   ======================================== */
-
 @media (max-width: 650px) {
 
     .navbar {
@@ -762,14 +659,12 @@ h2 {
         left: 0;
         width: 100%;
         padding: 25px 6%;
-        background: rgba(11, 11, 11, 0.96);
+        background: #0b0b0b;
         border-bottom: 1px solid var(--border);
         display: none;
         flex-direction: column;
         align-items: flex-start;
         gap: 22px;
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
     }
 
     .nav-links.active {
@@ -858,20 +753,3 @@ h2 {
     }
 }
 
-/* ========================================
-   ACCESSIBILITY
-   ======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    *,
-    *::before,
-    *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-}
