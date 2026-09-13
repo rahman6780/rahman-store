@@ -447,16 +447,14 @@ h2 span,
     gap: 18px;
 }
 
-.project-card {
-    padding: 25px;
-    border: 1px solid var(--line);
-    border-radius: var(--radius);
-    background: var(--surface);
-    transition:
-        transform 0.45s var(--ease),
-        border-color 0.45s ease,
-        background 0.45s ease,
-        box-shadow 0.45s ease;
+.project-card,
+.section-content,
+.interest-item,
+.update-item,
+.contact-section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
 .project-card:hover {
