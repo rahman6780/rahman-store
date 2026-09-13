@@ -1,49 +1,58 @@
 // ========================================
-// RAHMAN STORE — INTERACTIONS
+// RAHMANHUB — INTERACTIONS
 // ========================================
 
-// Mobile menu
+// Mobile navigation
 const menuBtn = document.getElementById('menuBtn');
 const navLinks = document.getElementById('navLinks');
 
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+if (menuBtn && navLinks) {
+    menuBtn.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('active');
 
-    menuBtn.textContent = navLinks.classList.contains('active')
-        ? '✕'
-        : '☰';
-});
-
-// Close mobile menu after clicking a link
-document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        menuBtn.textContent = '☰';
+        menuBtn.textContent = isOpen ? '✕' : '☰';
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-});
+
+    // Tutup menu setelah memilih navigasi
+    document.querySelectorAll('.nav-links a').forEach((link) => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            menuBtn.textContent = '☰';
+            menuBtn.setAttribute('aria-expanded', 'false');
+        });
+    });
+}
 
 // Scroll reveal animation
 const revealElements = document.querySelectorAll(
-    '.product-card, .about-content, .news-item, .contact-section'
+    '.project-card, .section-content, .interest-item, .update-item, .contact-section'
 );
 
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            revealObserver.unobserve(entry.target);
-        }
+if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.12
     });
-}, {
-    threshold: 0.12
-});
 
-revealElements.forEach((element) => {
-    revealObserver.observe(element);
-});
+    revealElements.forEach((element) => {
+        revealObserver.observe(element);
+    });
+} else {
+    // Fallback untuk browser yang tidak mendukung IntersectionObserver
+    revealElements.forEach((element) => {
+        element.classList.add('visible');
+    });
+}
 
-// Prevent placeholder links from jumping to the top
-document.querySelectorAll('a[href="#"]').forEach(link => {
+// Mencegah link placeholder "#" melompat ke atas
+document.querySelectorAll('a[href="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
     });
